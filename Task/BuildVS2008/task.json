@@ -1,0 +1,63 @@
+{
+    "id": "BC2A6803-C8EE-42E0-8DDA-D3A9EE79F940",
+    "name": "Visual Studio .NET 2008 Build Task",
+    "friendlyName": "Visual Studio 2008 Build",
+    "description": "Build Visual Studio .NET 2008 solutions and project files.",
+    "helpMarkDown": "based on https://github.com/igorguga/VS2003BuildTask/blob/master/README.md",
+    "category": "Build",
+    "visibility": [
+                "Build"
+                  ],    
+    "author": "Rene Poyyayil, (Igor Rosa Macedo)",
+    "version": {
+        "Major": 0,
+        "Minor": 1,
+        "Patch": 0
+    },
+    "demands" : [
+      "VS90COMNTOOLS"
+    ],
+    "minimumAgentVersion": "1.83.0",
+    "groups": [
+        {
+            "name":"advanced",
+            "displayName":"Advanced",
+            "isExpanded":false
+        }
+    ],    
+    "instanceNameFormat": "VS2008 Build $(targets)",
+    "inputs": [
+      {
+        "name": "TargetFile",
+        "type": "filePath",
+        "label": "Build Target File(s)",
+        "defaultValue":"*.sln",
+        "helpMarkDown": "Path to target files (solutions or projects) to be built.",
+        "required": true
+      },
+      {
+        "name": "Config",
+        "type": "string",
+        "label": "Build Configuration",
+        "defaultValue": "release",
+        "required": true,
+        "helpMarkDown": "The configuration to build (debug, release)."
+      },
+      {
+        "name": "DevEnvPath",
+        "type": "string",
+        "label": "DevEnv Path",
+        "defaultValue": "C:\\Program Files (x86)\\Microsoft Visual Studio 9.0\\Common7\\IDE\\Devenv.exe",
+        "required": false,
+        "helpMarkDown": "Agent full path to Microsoft Visual Studio 2008 DevEnv.exe file. If not informed, the agent will search for a VS2008 enviroment variable. If it wasn't defined, the build will fail.",
+        "groupName": "advanced"
+      }
+    ],
+    "execution": {
+        "PowerShell": {
+            "target": "$(currentDirectory)\\BuildVS2008.ps1",
+            "argumentFormat": "",
+            "workingDirectory": "$(currentDirectory)"
+        }
+    }
+}

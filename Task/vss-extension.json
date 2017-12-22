@@ -1,12 +1,12 @@
 {
   "manifestVersion": 1,
-  "id": "VS2003-Build-Task",
-  "version": "0.1.1",
-  "name": "Visual Studio 2003 Build Task",
+  "id": "VS2008-Build-Task",
+  "version": "0.1.0",
+  "name": "Visual Studio 2008 Build Task",
   "scopes": [ "vso.build_execute", "vso.build" ],
-  "description": "Builds Visual Studio .NET 2003 solutions and project files.",
+  "description": "Builds Visual Studio .NET 2008 solutions and project files. (Is based on "VS2003-Build-Task" by "igorrosamacedo")",
   "baseUri": "",
-  "publisher": "igorrosamacedo",
+  "publisher": "poyyaren",
   "public": true,
   "icons": {
     "default": "img/logo.png"
@@ -18,35 +18,11 @@
   ],
   "tags": [
     "Build",
-    "VS2003",
-    ".net 1.1"
+    "VS2008"
   ],
-  "screenshots": [
-        {
-            "path": "screenshots/AddTask.png"
-        },
-        {
-            "path": "screenshots/ConfigTask.png"
-        },
-        {
-            "path": "screenshots/BuildLog.png"
-        }
-    ],
   "links": {
-    "home": {
+    "base-project": {
       "uri": "https://github.com/igorguga/VS2003BuildTask"
-    },
-    "getstarted": {
-      "uri": "https://github.com/igorguga/VS2003BuildTask/blob/master/README.md"
-    },
-    "support": {
-      "uri": "https://github.com/igorguga/VS2003BuildTask/issues/new"
-    },
-    "repository": {
-      "uri": "https://github.com/igorguga/VS2003BuildTask"
-    },
-    "issues": {
-      "uri": "https://github.com/igorguga/VS2003BuildTask/issues"
     }
   },
   "branding": {
@@ -64,7 +40,7 @@
   },
   "files": [
     {
-      "path": "BuildVS2003"
+      "path": "BuildVS2008"
     }
   ],
   "categories": [
@@ -72,13 +48,13 @@
   ],
   "contributions": [
     {
-      "id": "buildvs2003",
+      "id": "buildvs2008",
       "targets": [
         "ms.vss-distributed-task.tasks"
       ],
       "type": "ms.vss-distributed-task.task",
       "properties": {
-        "name": "BuildVS2003"
+        "name": "BuildVS2008"
       }
     }
   ]
